@@ -60,7 +60,7 @@ Fixing the issues was relatively straightforward.
 
 Time to finally make the dashboard.
 
-# Create the Dashboard:
+# Create the Dashboard
 
 # Notes: 
 
