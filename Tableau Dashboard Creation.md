@@ -7,7 +7,7 @@ This document summarizes the thought process and details of creating a Tableau D
 ### The general process was as follows:
 1. [Decide on Objective](#DecideOnObjective)
 0. [Prepare Data](#PrepareData)
-0. [Create the Dashboard](#CreateTheDashboard)
+0. [Create the Dashboard](#CreatetheDashboard)
 
 # Decide on Objective:
 
