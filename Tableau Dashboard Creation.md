@@ -1,10 +1,40 @@
 # Start
 
-This document summarizes the thought process and details of creating a Tableau Dashboard for visualizing US COVID statistics during the 2020 calendar year.
+This document summarizes the thought process and details of creating a Tableau Dashboard (snapshot below) for visualizing US COVID statistics during the 2020 calendar year.
 
-# 
+![final dashboard](Pictures/FinalDashboard.PNG)
 
-![]("\Pictures\FinalDashboard.PNG")
+### The general process was as follows:
+1. [Decide on Objective](#DecideOnObjective)
+0. [Prepare Data](#PrepareData)
+0. [Create Dashboard]()
+
+# Decide on Objective:
+
+Before we even start looking at data or opening our dashboard creation software, we need to have a clear question or objective in mind that we are trying to address. For this project, I decided to focus on answering the general question of **"how did COVID unfold in the United States in 2020?".**
+
+## Target Audience: 
+As import as knowing what question you're trying to answer is knowing *who* you're trying to answer it for. I decided that my target audience would be someone working for the CDC who was charged with examining how the pandemic progressed, and what future strategies could be learned from looking back. Knowing the target audience shapes what kind of information you want to present and at what level of depth. 
+
+For example: a doctor or nurse might be more concerned with the immediate problem. After all, they have patients to attend to now - and knowing what the current case load is has a direct effect on their daily routine. A member of the CDC however would be less concerned of the immediate discrete case load and more likely to focus on what the peaks and troughs were over a span of months. Logistics and planning are their wheelhouse, and the big picture is more important to them.
+
+These notions of what my audience expects to get out of my presentation will define what data we show, and in what manner. Knowing these questions before we start messing with data and dashboards can save us time and prevent us from spinning our wheels while neck deep in numbers.
+
+## Adding Scoped Questions:
+Within this broad question, there were several smaller scoped questions that would help narrow our focus and let us answer the big picture question.
+
+### **How did COVID unfold in the US in 2020?**
+1. **How did the number of cases change in the course of a year?**
+   * Peak loads or troughs could be linked to holidays, travel spikes, or other factors that could help limit the spread of a disease in the future.
+0. **How did individual states compare in total cases?**
+   * If a state stood out in either a positive or negative way, it could be examined more closely to see if any unusal strategies were adopted that could benefit other states later on.
+0. **Was there a difference between deadliness and number of cases (prevalence)?**
+   * A disease is deadly if a high percentage of infected people die. It is prevalent if a large number of people get infected. If a state managed to keep deaths to a minimum despite a large number of cases, their course of action could be useful to other states for the next pandemic. After accounting for the inherent deadliness of the disease itself, there could be other factors that determined a patients survival, such as the number of total available ICU beds.
+
+Having these questions clearly defined, we are ready to preprocess our data.
+
+# Prepare Data:
+
 
 # Notes: 
 
