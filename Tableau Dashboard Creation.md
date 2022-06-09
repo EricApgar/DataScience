@@ -7,7 +7,7 @@ This document summarizes the thought process and details of creating a Tableau D
 ### The general process was as follows:
 1. [Decide on Objective](#DecideOnObjective)
 0. [Prepare Data](#PrepareData)
-0. [Create Dashboard]()
+0. [Create the Dashboard](#CreateTheDashboard)
 
 # Decide on Objective:
 
@@ -34,7 +34,33 @@ Within this broad question, there were several smaller scoped questions that wou
 Having these questions clearly defined, we are ready to preprocess our data.
 
 # Prepare Data:
+The dataset comes from the New York Times [GitHub](https://github.com/nytimes/covid-19-data). I chose this dataset because of the relative simplicity (limited number of clearly defined columns which were a good scope for this project) and its throroughness (full data for CONUS for several years for each day of the year).
 
+After downloading the data, I popped it open in excel to get a sense of what it looked like. 
+
+## Finding Data Deficiencies:
+No data is perfect, and I noticed a couple areas in which I would make changes to the dataset I had. 
+
+1. There was a cumulative running total for the number of cases and deaths, but no fields for the *new* number of cases/deaths. 
+   * This could be useful for a variety of metrics like a day to day increase.
+0. There were certain counties and states that were labeled as "Uknown". 
+0. There were instances where the cumulative number of cases/deaths decreased.
+   * This shouldn't be possible unless it was a misreport for the day before.
+
+## Addressing Data Deficiencies:
+Fixing the issues was relatively straightforward.
+
+1. I wrote a python script (cumulative_to_new.py, included in this repo) that was designed to run through the data set and subtract the sequential cumulative number of cases and deaths to create two new fields - the *new* number of cases and deaths.
+   * This probably could have been done in tableau, but I like the full control and low level detail that Python can provide. It's always handy to have something that can trawl through your data in case other changes are needed too.
+0. I deleted all the "Unknown" counties.
+   * This may seem extreme, but an unknown county or state isn't really usable data in this case, and a quick check of how many were labeled as such told me that it would have a negligible effect on the final product.
+0. I straightened the totals to avoid any decrease in reported cumulative cases.
+   * If a total ever dropped from day to day, I just reset the number of new cases to 0 to reflect no change.
+   * I actually didn't notice that there were decreases in the cumulative totals until I already had the dashboard made and saw some odd behaviour. I see this as a valuable lesson that data quality problems are not always obvious.
+
+Time to finally make the dashboard.
+
+# Create the Dashboard:
 
 # Notes: 
 
