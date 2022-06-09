@@ -5,9 +5,9 @@ This document summarizes the thought process and details of creating a Tableau D
 ![final dashboard](Pictures/FinalDashboard.PNG)
 
 ### The general process was as follows:
-1. [Decide on Objective](#DecideOnObjective)
-0. [Prepare Data](#PrepareData)
-0. [Create the Dashboard](#CreatetheDashboard)
+1. Decide on Objective
+0. Prepare Data
+0. Create the Dashboard
 
 # Decide on Objective:
 
@@ -36,7 +36,9 @@ Having these questions clearly defined, we are ready to preprocess our data.
 # Prepare Data:
 The dataset comes from the New York Times [GitHub](https://github.com/nytimes/covid-19-data). I chose this dataset because of the relative simplicity (limited number of clearly defined columns which were a good scope for this project) and its throroughness (full data for CONUS for several years for each day of the year).
 
-After downloading the data, I popped it open in excel to get a sense of what it looked like. 
+I also knew that I wanted to include population data for each state. The number of cases is only partially useful without knowing how many people exist in total. A total number of cases of 10,000 sounds bad until you find out the population pool is 10 million. There are other insights that rely on percentage of the whole as well. This population data was obtained from the [US Census Bureau](https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-total.html) and will later be linked to the COVID data in Tableau. 
+
+After downloading all the data, I popped it open in excel to get a sense of what it looked like. 
 
 ## Finding Data Deficiencies:
 No data is perfect, and I noticed a couple areas in which I would make changes to the dataset I had. 
@@ -60,76 +62,23 @@ Fixing the issues was relatively straightforward.
 
 Time to finally make the dashboard.
 
-# Create the Dashboard
+# Create the Dashboard:
+I chose Tableau for creating the dashboard for their clean design look and ease of making an interactive tool for statistics.
 
-# Notes: 
+Having clearly laid out my questions beforehand, I knew what kind of design to make. Sheets could be made to address each of the questions at hand.
 
-Before I started playing with data, I start with these questions:
-1. How are states handling COVID?
-   * Which states are doing well/poorly?
-   * How are case numbers changing?
-0. Who am I designing this dashboard for?
-   * Data science professionals?
-      * More aware of what metrics are important
-   * Average American?
+1. **How did the number of cases change in the course of a year?**
+   * A timeline showing the number of cases and deaths with the ability to control where in the timeline you are would be useful.
+0. **How did individual states compare in total cases?**
+   * Bar graphs showing the top five states in their prevalence and mortality rates would provide instant information on which states were employing effective strategies.
+0. **Was there a difference between deadliness and number of cases (prevalence)?**
+   * Comparison bar graphs for the top five in both categories additionally provides details on whether a state was effective in both scenarios or only one.
 
+Other important charts were created as well.
+1. A map of the US provides a recognizable and visually appealing way to display data for each state.
+   * Selecting desired states should be more intuitive compared to something like a bar graph with 50 different bars.
+   * Selecting the state filters down the data for all charts to provide a higher resolution.
+0. Hovering over the state provides the explicit prevalence and deadliness details, as well more information about population.
 
-## Important Data Metrics:
-* Total number of cases.
-   * Case count / state population.
-      * Lets you know state efficiency at handling COVID.
-   * Case count 
-
-## Average American:
-* How bad is it now?
-   * Total number of cases.
-* How bad will it be?
-   * Case count acceleration?
-   * Boolean "Getting Better" or "Getting Worse".
-   * Weekly percent change ?
-
-## Data Scientist:
-* How bad is it now?
-* How bad will it be?
-   * Case 
-
-
-
-# Design:
-* Map of US that has buttons to show: Cases, Deaths, Deadliness.
-* Play button to show progression over time.
-* Data box to show 
-
-
-# Level 1 User:
-* How bad was COVID?
-* Animation of elapsing time.
-   * Fast timeline of play.
-* Ticker for Total Cases, Deaths, and Deadliness (Deaths/Cases)
-   * Pie Chart for visually showing the same thing?
-      * This gives an instant "proportions viewpoint" for a non-numbers person.
-      * Redundant information helps drive home point.
-* Minimizes number of interactive options or slicers that they can touch.
-* Map graphic because maps are cool and recognizable.
-
-# Holistic View of how COVID progressed: 
-* Focus is on the timeline: How did COVID unfold in 2020.
-* Target audience is CDC looking back on how they did for 2020.
-   * Useful for estimating peak load (on hospitals) during a pandemic.
-   * Percentage of infected population could provide insight into why it was low/high.
-* This means:
-   * Cumulative case load (as opposed to new cases per day).
-   * Time series data (as opposed to just a bar graph) - likely a line chart.
-* Figure out if there were specific events that caused higher than normal spikes.
-
-## Takeaway:
-* Here are the states that did well in Prevalence, Deadliness.
-
-# Things I did:
-* Plan out the scope of what I was trying to show (target audience).
-   * Information that I would want to see that I hadnt before.
-* Spent a lot of time in the data before ever reaching Tableau.
-   * Derived new fields for new cases/deaths from cumulative numbers.
-   * Noticed that sometimes the number of deaths decreased...
-      * This could be a misreport, or a data error.
-      * Corrected this to zero for the purpose of the excercise.
+# Summary:
+Overall, this tool could be effectively used in retrospective to examine which states performed best in early COVID times. This information could be used to help future planning with regards to other possible pandemics and the health care system.
