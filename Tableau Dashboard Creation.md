@@ -4,6 +4,8 @@ This document summarizes the thought process and details of creating a Tableau D
 
 # 
 
+![]("\Pictures\FinalDashboard.PNG")
+
 # Notes: 
 
 Before I started playing with data, I start with these questions:
