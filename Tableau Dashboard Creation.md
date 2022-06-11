@@ -14,9 +14,9 @@ This document summarizes the thought process and details of creating a Tableau D
 Before we even start looking at data or opening our dashboard creation software, we need to have a clear question or objective in mind that we are trying to address. For this project, I decided to focus on answering the general question of **"how did COVID unfold in the United States in 2020?".**
 
 ## Target Audience: 
-As import as knowing what question you're trying to answer is knowing *who* you're trying to answer it for. I decided that my target audience would be someone working for the CDC who was charged with examining how the pandemic progressed, and what future strategies could be learned from looking back. Knowing the target audience shapes what kind of information you want to present and at what level of depth. 
+As important as knowing what question you're trying to answer is knowing *who* you're trying to answer it for. I decided that my target audience would be someone working for the CDC who was charged with examining how the pandemic progressed, and what future strategies could be learned from looking back. Knowing the target audience shapes what kind of information you want to present and at what level of depth. 
 
-For example: a doctor or nurse might be more concerned with the immediate problem. After all, they have patients to attend to now - and knowing what the current case load is has a direct effect on their daily routine. A member of the CDC however would be less concerned of the immediate discrete case load and more likely to focus on what the peaks and troughs were over a span of months. Logistics and planning are their wheelhouse, and the big picture is more important to them.
+For example: a doctor or nurse might be more concerned with the immediate problem (daily number of cases). After all, they have patients to attend to now - and knowing what the current case load is has a direct effect on their daily routine. A member of the CDC however might be less concerned of the immediate discrete case load and more likely to focus on what the peaks and troughs were over a span of months. Logistics and planning are their wheelhouse, and the big picture is more important to them.
 
 These notions of what my audience expects to get out of my presentation will define what data we show, and in what manner. Knowing these questions before we start messing with data and dashboards can save us time and prevent us from spinning our wheels while neck deep in numbers.
 
@@ -53,9 +53,9 @@ No data is perfect, and I noticed a couple areas in which I would make changes t
 Fixing the issues was relatively straightforward.
 
 1. I wrote a python script (cumulative_to_new.py, included in this repo) that was designed to run through the data set and subtract the sequential cumulative number of cases and deaths to create two new fields - the *new* number of cases and deaths.
-   * This probably could have been done in tableau, but I like the full control and low level detail that Python can provide. It's always handy to have something that can trawl through your data in case other changes are needed too.
+   * This probably could have been done in Tableau, but I like the full control and low level detail that Python can provide. It's always handy to have something that can trawl through your data in case other changes are needed too.
 0. I deleted all the "Unknown" counties.
-   * This may seem extreme, but an unknown county or state isn't really usable data in this case, and a quick check of how many were labeled as such told me that it would have a negligible effect on the final product.
+   * This may seem extreme, but an unknown county or state isn't really usable data in this case, and a quick check of how many were labeled as such told me that it would have a negligible effect on the final product if we deleted them.
 0. I straightened the totals to avoid any decrease in reported cumulative cases.
    * If a total ever dropped from day to day, I just reset the number of new cases to 0 to reflect no change.
    * I actually didn't notice that there were decreases in the cumulative totals until I already had the dashboard made and saw some odd behaviour. I see this as a valuable lesson that data quality problems are not always obvious.
@@ -76,8 +76,8 @@ Having clearly laid out my questions beforehand, I knew what kind of design to m
 
 Other important charts were created as well.
 1. A map of the US provides a recognizable and visually appealing way to display data for each state.
-   * Selecting desired states should be more intuitive compared to something like a bar graph with 50 different bars.
-   * Selecting the state filters down the data for all charts to provide a higher resolution.
+   * Selecting desired states to filter data should be more intuitive than a bar graph with 50 different bars (one for each state).
+   * Selecting the state filters filter the data for *all* charts to provide a higher resolution and link all visuals.
 0. Hovering over the state provides the explicit prevalence and deadliness details, as well more information about population.
 
 # Summary:
